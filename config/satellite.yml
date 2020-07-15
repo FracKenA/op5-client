@@ -1,0 +1,38 @@
+reload: no
+logfile: ./log/event.log
+
+host:
+  name: newserver-x1
+  template: passive-host-template
+
+account:
+  name: sputnik57
+  pass: $vYeon`D%:3xpbg7X_#5(6@s7t9b@Ai
+
+products:
+  enabled:
+    - monitor
+  monitor:
+    servers:
+      - m0a.xn1.op5.co
+    secure: yes
+
+metrics:
+  enabled:
+    - cpupercenttotal
+    - cpupercenteach
+  server: m0a.xn1.op5.co
+  hostalive:
+    interval: 15
+  cpupercenttotal:
+    description: CPU Percent Usage in Total
+    template: passive-service-template
+    interval: 5
+    warning: 80
+    critical: 90
+  cpupercenteach:
+    description: CPU Percent Usage for Each
+    template: passive-service-template
+    interval: 1
+    warning: 80
+    critical: 90
